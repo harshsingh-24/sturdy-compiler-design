@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <queue>
+#include <fstream>
 using namespace std;
 
 #define EPSILON '@'
@@ -311,11 +312,49 @@ map<int, vector<vector<int>>> generateNFAForAlphabet(char i) {
         return adjacenyMatrix;
 }
 
+void convertFinalNFAToVisualizerFormat(map<int, vector<vector<int>>> finalNFA) {
+    ofstream outputFile("outputFromConvertor.txt");
+
+    string temp = "";
+    for(auto i: stateOfNode) {
+        if(i.second == 0) // start node
+            temp = temp + to_string(i.first) + " ";
+        else if(i.second == 2) // final node
+            temp = temp + to_string(i.first) + "\n";
+        else
+            continue;
+    }
+
+    outputFile << temp;
+
+    vector<char> validAlphabetVector(validAlphabetSet.begin(), validAlphabetSet.end());
+    validAlphabetVector.push_back('@');
+
+    for(auto i: finalNFA) {
+        int count = 0;
+        for(auto j: i.second) {
+            string input = "";
+
+            for(auto k: j) {
+                if(k == -1)
+                    continue;
+                input = to_string(i.first) + " " + to_string(k) + " ";
+                input.push_back(validAlphabetVector[count]);
+                input = input + "\n";
+                outputFile << input;
+            }
+            count++;
+        }
+    }
+
+    outputFile.close();
+}
+
 int main()
 {
+    ifstream inputFile("inputToConvertor.txt");
     string alphabetSetAsString;
-    cout << "Enter Alphabet Set(as space-seperated string): ";
-    getline(cin, alphabetSetAsString);
+    getline(inputFile, alphabetSetAsString);
 
     for(auto ch: alphabetSetAsString) {
         if(ch == ' ')
@@ -325,8 +364,9 @@ int main()
     }
 
     string regex;
-    cout << "Enter Regex: ";
-    cin >> regex;
+    getline(inputFile, regex);
+    inputFile.close();
+ 
     // Validate Regular Expression for valid Alphabet Set and Operator Set
     if (validateRegex(regex)) {
         cout << "Regex validation SUCCESS" << endl;
@@ -373,5 +413,6 @@ int main()
     map<int, vector<vector<int>>> finalNFA = s.top();
     printNFA(finalNFA);
 
+    convertFinalNFAToVisualizerFormat(finalNFA);
     return 0;
 }

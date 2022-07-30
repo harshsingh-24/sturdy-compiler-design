@@ -8,47 +8,47 @@ I have developed a Regular Expression to epsilon-Non-Deterministic Finite Automa
 1. Clone this repository using
 `git clone https://github.com/harshsingh-24/sturdy-compiler-design.git` or downloading the zip-file.
 2. Change the `inputToConvertor.txt` file for customized Input. The first line of Input is the valid Alphabet Set seperated by spaces and second line of Input is the Regular Expression which is to be converted into NFA.
-3. Execute the `runner_assignment.bat` file and the graph will be generated automatically
+3. Execute the `run.bat` file and the graph will be generated automatically
 4. Note that red node is the start node and green node is the final node
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
-<h2 id="usage"> 📋 Examples </h2>
+<h2 id="usage"> ✨ Examples </h2>
 
 ### 1. Regular Expression - (a+b)*c
 
 <p align = "center">
-<img src="images/1.jpeg" style="width:50%; height:65%;"/>
+<img src="images/1.jpeg" style="width:75%; height:90%;"/>
 </p>
   
 ### 2. Regular Expression - a**bc+d
 
 <p align = "center">
-<img src="images/2.jpeg" style="width:50%; height:65%;"/>
+<img src="images/2.jpeg" style="width:75%; height:90%;"/>
 </p>
 
 ### 3. Regular Expression - abc
 
 <p align = "center">
-<img src="images/3.jpeg" style="width:50%; height:65%;"/>
+<img src="images/3.jpeg" style="width:75%; height:90%;"/>
 </p>
 
 ### 4. Regular Expression - a+b+c
 
 <p align = "center">
-<img src="images/4.jpeg" style="width:50%; height:65%;"/>
+<img src="images/4.jpeg" style="width:75%; height:90%;""/>
 </p>
 
 ### 5. Regular Expression - a*
 
 <p align = "center">
-<img src="images/5.jpeg" style="width:50%; height:65%;"/>
+<img src="images/5.jpeg" style="width:75%; height:90%;"/>
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 <!-- CREDITS -->
-<h2 id="credits"> :scroll: Credits</h2>
+<h2 id="credits"> 🎇 Credits</h2>
 
 Harsh Singh Jadon 
 

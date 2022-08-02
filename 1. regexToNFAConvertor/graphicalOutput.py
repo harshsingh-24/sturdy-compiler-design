@@ -10,7 +10,7 @@ Lines = fileContent.split('\n')
 # Create the digraph
 def getNodeColor(val):
     if(val==startNode):
-        return 'y' if startNode == finalNode else 'r'
+        return 'r'
     elif(val==finalNode):
         return 'g'
     else:

@@ -101,14 +101,6 @@ map<int, int> stateOfNode = {
     {38, 0}, {39, 1}, {40, 3}
 };
 
-map<int, set<string>> allowableTransitions = {
-    {1, {">", "=", "<"}},
-    {2, {"i", "f"}},
-    {3, {"t", "h", "e", "n"}},
-    {4, {"e", "l", "s", "e"}},
-    {7, {" ", "\t", "\n"}}
-};
-
 map<int, int> startNode = {{1, 0}, {2, 9}, {3, 13}, {4, 19}, {5, 25}, {6, 28}, {7, 38}};
 
 int relopMachine(string s, int index) {
@@ -380,14 +372,6 @@ int main() {
         letterSet.insert(s1);
         letterSet.insert(s2);
     }
-
-    // allowableTransitions addition of entries
-    set<string> temp1, temp2;
-    set_union(letterSet.begin(), letterSet.end(), digitSet.begin(), digitSet.end(), inserter(temp1,temp1.begin()));
-    set_union(mathematicalSymbolSet.begin(), mathematicalSymbolSet.end(), digitSet.begin(), digitSet.end(), inserter(temp2,temp2.begin()));
-    allowableTransitions[5] = temp1;
-    allowableTransitions[6] = temp2;
-
 
     string inputStatement;
     cout << "Enter statement: ";

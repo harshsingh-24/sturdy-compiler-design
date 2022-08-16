@@ -4,7 +4,7 @@ main()
     int total=0;
     float count;
     read(count);
-    for(i=0;i<10;i++)
+    for(i=0, j=0;i<10 && j<15; i++, j+=2)
     {
         read(x);
         total= total+x;

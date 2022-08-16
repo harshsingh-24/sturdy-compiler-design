@@ -20,46 +20,46 @@
     #define WHITESPACE 17
 %}
 
-delim [ \t\n]
-whitespace ({delim}+)
-digit [0-9]
-letter [a-zA-Z]
-digits ({digit}+)
-l_or_d ({letter}|{digit})
-if (if)
-else (else)
-datatype (int|float)
-loopconstruct (for|while)
-inputop (read)
-outputop (print)
-main (main)
-relop (<|>|<=|>=|!=|==)
-assignop (=)
-arithmeticop [-+*/]
-logicalop (&&|\|\||!)
-separator [;,(){}]
-unaryop (\+\+|--)
-number {digits}(\.{digits})?(E[+-]?{digits})?
-identifier ({letter}{l_or_d}*)
+delim               [ \t\n]
+whitespace          ({delim}+)
+digit               [0-9]
+letter              [a-zA-Z]
+digits              ({digit}+)
+l_or_d              ({letter}|{digit})
+if                  (if)
+else                (else)
+datatype            (int|float)
+loopconstruct       (for|while)
+inputop             (read)
+outputop            (print)
+main                (main)
+relop               (<|>|<=|>=|!=|==)
+arithmeticop        [-+*/]
+assignop            ({arithmeticop})?=
+logicalop           (&&|\|\||!)
+separator           [;,(){}]
+unaryop             (\+\+|--)
+number              {digits}(\.{digits})?(E[+-]?{digits})?
+identifier          ({letter}{l_or_d}*)
 
 %%
-{whitespace} {return WHITESPACE;}
-{if} {return IF;}
-{else} {return ELSE;}
-{datatype} {return DATATYPE;}
-{loopconstruct} {return LOOPCONSTRUCT;}
-{inputop} {return INPUTOP;}
-{outputop} {return OUTPUTOP;}
-{main} {return MAIN;}
-{relop} {return RELOP;}
-{assignop} {return ASSIGNOP;}
-{arithmeticop} {return ARITHMETICOP;}
-{logicalop} {return LOGICALOP;}
-{separator} {return SEPARATOR;}
-{unaryop} {return UNARYOP;}
-{number} {return NUMBER;}
-{identifier} {return ID;}
-. {return ERROR;}
+{whitespace}        {return WHITESPACE;}
+{if}                {return IF;}
+{else}              {return ELSE;}
+{datatype}          {return DATATYPE;}
+{loopconstruct}     {return LOOPCONSTRUCT;}
+{inputop}           {return INPUTOP;}
+{outputop}          {return OUTPUTOP;}
+{main}              {return MAIN;}
+{relop}             {return RELOP;}
+{assignop}          {return ASSIGNOP;}
+{arithmeticop}      {return ARITHMETICOP;}
+{logicalop}         {return LOGICALOP;}
+{separator}         {return SEPARATOR;}
+{unaryop}           {return UNARYOP;}
+{number}            {return NUMBER;}
+{identifier}        {return ID;}
+.                   {return ERROR;}
 %%
 
 int yywrap(void) {return 1;}

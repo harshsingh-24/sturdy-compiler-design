@@ -1,0 +1,13 @@
+main()
+{
+    int i=0;
+    int total=0;
+    float count;
+    read(count);
+    for(i=0;i<10;i++)
+    {
+        read(x);
+        total= total+x;
+    }
+    print(total);
+}

@@ -1,0 +1,4 @@
+if harsh<=12 then 
+    apple=mango 
+else 
+    banana=cream

@@ -1,0 +1,10 @@
+3
+Z->Y
+A->bAB|bBc|bAc|aCV|cDF|cEF
+B->bcD|bcG
+
+
+3
+A->aabc|aCbb|aabz|aCbz
+B->bba|efg|bbf
+C->cdf|cgi|def

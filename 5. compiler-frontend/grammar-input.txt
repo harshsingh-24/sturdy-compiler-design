@@ -1,0 +1,19 @@
+P -> prog DL SL end
+DL -> D DL | #
+D -> TY VL ;
+TY -> int | float
+VL -> id VL | id
+SL -> S SL | #
+S -> ES | IS | WS | IOS
+ES -> id := E;
+IS -> if BE then SL end | if BE then SL else SL end
+WS -> while BE do SL end
+IOS -> print PE | scan id
+PE -> E | str
+BE -> BE or AE | AE
+AE -> AE and NE | NE
+NE -> not NE | {BE} | RE
+RE -> E=E | E<E | E>E
+E -> E+T | E-T | T
+T -> T*F | T/F | F
+F -> (E) | id | ic | fc

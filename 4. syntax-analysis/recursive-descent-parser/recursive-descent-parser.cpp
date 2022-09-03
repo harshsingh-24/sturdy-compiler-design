@@ -62,7 +62,7 @@ private:
         }
     }
     void F() {
-        if (isalnum(input[pointer]))
+        if (isalnum(input[pointer])) //identifier
             pointer++;
         else if (input[pointer] == '(') {
             pointer++;

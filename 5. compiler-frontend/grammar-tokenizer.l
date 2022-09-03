@@ -1,6 +1,6 @@
 /***  Lexical Analyser ***/
 %{
-    /** TERMINALS **/
+    /** NON_TERMINALS **/
     #define ERROR -1
     #define _AE 1
     #define _BE 2
@@ -22,7 +22,7 @@
     #define _VL 18
     #define _WS 19
 
-    /** NON_TERMINALS **/
+    /** TERMINALS **/
     #define PLUS 20
     #define MINUS 21
     #define MULTIPLY 22

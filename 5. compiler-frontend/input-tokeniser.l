@@ -57,37 +57,35 @@
     #define WHILE 50
 
     /** EXTRA CHARACTERS **/
-    #define ARROW 51
-    #define PIPE 52
     #define WHITESPACE 53
     #define NEWLINE 54
     #define EPSILON 55
 %}
 
-AE                  {AE}
-BE                  {BE}
-D                   {D}
-DL                  {DL}
-E                   {E}
-F                   {F}
-ES                  {ES}
-IOS                 {IOS}
-IS                  {IS}
-NE                  {NE}
-P                   {P}
-PE                  {PE}
-RE                  {RE}
-S                   {S}
-SL                  {SL}
-T                   {T}
-TY                  {TY}
-VL                  {VL}
-WS                  {WS}
+AE                  (AE)
+BE                  (BE)
+D                   (D)
+DL                  (DL)
+E                   (E)
+F                   (F)
+ES                  (ES)
+IOS                 (IOS)
+IS                  (IS)
+NE                  (NE)
+P                   (P)
+PE                  (PE)
+RE                  (RE)
+S                   (S)
+SL                  (SL)
+T                   (T)
+TY                  (TY)
+VL                  (VL)
+WS                  (WS)
 
 plus                (\+)
 minus               (-)
 multiply            (\*)
-divide              (/)
+divide              (\/)
 equal               (=)
 lt                  (<)
 gt                  (>)
@@ -116,13 +114,11 @@ digit               [0-9]
 letter              [a-zA-Z]
 digits              ({digit}+)
 l_or_d              ({letter}|{digit})
-ic                  [-]?{digits}
+ic                  {digits}
 id                  ({letter}{l_or_d}*)
-fc                  [-]?{digits}(\.{digits})?(E[+-]?{digits})?
+fc                  {digits}(\.{digits})?(E[+-]?{digits})?
 str                 (\"([^\\\"]|\\.)*\")
 
-arrow               (->)
-pipe                (|)
 whitespace          [ \t]+
 newline             [\n]+
 epsilon             (#)
@@ -165,24 +161,23 @@ epsilon             (#)
 {and}                 {return AND;}
 {else}                {return ELSE;}
 {end}                 {return END;}
-{ic}                  {return IC;}
-{id}                  {return ID;}
 {if}                  {return IF;}
 {int}                 {return INT;}
 {do}                  {return DO;}
-{fc}                  {return FC;}
 {float}               {return FLOAT;}
 {not}                 {return NOT;}
 {or}                  {return OR;}
 {print}               {return PRINT;}
 {prog}                {return PROG;}
-{scan}                {return SCAN}
-{str}                 {return STR;}
+{scan}                {return SCAN;}
 {then}                {return THEN;}
 {while}               {return WHILE;}
 
-{arrow}               {return ARROW;}
-{pipe}                {return PIPE;}
+{ic}                  {return IC;}
+{id}                  {return ID;}
+{fc}                  {return FC;}
+{str}                 {return STR;}
+
 {whitespace}          {return WHITESPACE;}
 {newline}             {return NEWLINE;}
 {epsilon}             {return EPSILON;}
@@ -194,11 +189,17 @@ int yywrap(void) {return 1;}
 
 int main() {
     int token;
+    FILE *op = fopen("tokenised-input.txt", "w");
     yyin = fopen("input.txt", "r");
     while((token=yylex()) != 0) {
-        
-        
-             
+        if(token == ERROR) {
+            fprintf(op, "ERROR while tokenising!!");
+            return 1;
+        } else if(token == NEWLINE || token == WHITESPACE) {
+            continue;
+        } else {
+            fprintf(op, "%d ", token);
+        }
     }
 } 
 

@@ -123,7 +123,7 @@ void printFollowSet() {
 
 set<int> computeFirstOfExpression(stack<int> s) {
 
-    if(s.empty())
+    if(s.empty() || (s.size() == 1 && s.top() == EPSILON))
         return {EPSILON};
 
     set<int> ans;

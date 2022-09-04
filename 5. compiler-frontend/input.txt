@@ -1,0 +1,14 @@
+prog 
+    int alpha beta;
+    float gamma;
+    alpha := (4.2E18+304) * (alpha-beta/gamma);
+    if alpha>beta or beta<gamma and not gamma=alpha then
+        delta := chi;
+        print "tau&123"
+    else 
+        scan lambda
+    end 
+    while count > 5.2 do 
+        omega := omega+1;
+    end 
+end

@@ -400,4 +400,14 @@ output F -> ic
 Match ic
 output Q103 -> # 
 output Q102 -> # 
-ERROR. TOKEN MISMATCH. REJECTED!!Expected: end, Found: ;
+Match ;
+output SL -> # 
+output Q104 -> end 
+Match end
+output SL -> # 
+Match end
+output SL -> # 
+Match end
+
+
+ACCEPTED

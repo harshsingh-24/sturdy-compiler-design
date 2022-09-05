@@ -15,10 +15,9 @@ using namespace std;
 int startSymbol;
 vector<int> nonTerminals;
 map<int, vector<vector<int>>> contextFreeGrammar;
-// ifstream inputFile("grammarLL.txt");
-ifstream inputFile("grammarLL.txt");
-ofstream outputFile1("first-set.txt");
-ofstream outputFile2("follow-set.txt");
+ifstream inputFile("../text-files/grammarLL.txt");
+ofstream outputFile1("../text-files/first-set.txt");
+ofstream outputFile2("../text-files/follow-set.txt");
 map<int, set<int>> firstSet;
 map<int, set<int>> followSet;
 
@@ -226,7 +225,7 @@ void followSetComputation() {
 
 int main() {
     
-    ifstream findStart("tokenised-grammar.txt");
+    ifstream findStart("../text-files/tokenised-grammar.txt");
     findStart >> startSymbol;
 
     string s;

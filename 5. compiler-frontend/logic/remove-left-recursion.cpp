@@ -12,8 +12,8 @@ using namespace std;
 vector<int> nonTerminals;
 map<int, vector<vector<int>>> contextFreeGrammar;
 int maxToken;
-ifstream inputFile("tokenised-grammar.txt");
-ofstream outputFile("tg-non-left-recursive.txt");
+ifstream inputFile("../text-files/tokenised-grammar.txt");
+ofstream outputFile("../text-files/tg-non-left-recursive.txt");
 
 class Generator {
     int nextToken;

@@ -1,0 +1,403 @@
+output P -> prog DL SL end 
+Match prog
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> int 
+Match int
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> int 
+Match int
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> int 
+Match int
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> int 
+Match int
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> float 
+Match float
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> D DL 
+output D -> TY VL ; 
+output TY -> int 
+Match int
+output VL -> id Q106 
+Match id
+output Q106 -> # 
+Match ;
+output DL -> # 
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> IOS 
+output IOS -> scan id 
+Match scan
+Match id
+output SL -> S SL 
+output S -> IOS 
+output IOS -> print PE 
+Match print
+output PE -> E 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output SL -> S SL 
+output S -> IS 
+output IS -> if BE then SL Q104 
+Match if
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> = E 
+Match =
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match then
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> # 
+output Q104 -> else SL end 
+Match else
+output SL -> S SL 
+output S -> IS 
+output IS -> if BE then SL Q104 
+Match if
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> < E 
+Match <
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match then
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> fc 
+Match fc
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> IS 
+output IS -> if BE then SL Q104 
+Match if
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> < E 
+Match <
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match then
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> fc 
+Match fc
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> # 
+output Q104 -> else SL end 
+Match else
+output SL -> S SL 
+output S -> IS 
+output IS -> if BE then SL Q104 
+Match if
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> < E 
+Match <
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match then
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> fc 
+Match fc
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> IOS 
+output IOS -> print PE 
+Match print
+output PE -> str 
+Match str
+output SL -> # 
+output Q104 -> end 
+Match end
+output SL -> S SL 
+output S -> IOS 
+output IOS -> scan id 
+Match scan
+Match id
+output SL -> # 
+Match end
+output SL -> # 
+output Q104 -> end 
+Match end
+output SL -> S SL 
+output S -> WS 
+output WS -> while BE do SL end 
+Match while
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> > E 
+Match >
+output E -> T Q102 
+output T -> F Q103 
+output F -> fc 
+Match fc
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match do
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> - T Q102 
+Match -
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> # 
+Match end
+output SL -> # 
+Match end
+output SL -> S SL 
+output S -> WS 
+output WS -> while BE do SL end 
+Match while
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> > E 
+Match >
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match do
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> + T Q102 
+Match +
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> fc 
+Match fc
+output Q103 -> # 
+output Q102 -> # 
+Match ;
+output SL -> S SL 
+output S -> IS 
+output IS -> if BE then SL Q104 
+Match if
+output BE -> AE Q100 
+output AE -> NE Q101 
+output NE -> RE 
+output RE -> E Q105 
+output E -> T Q102 
+output T -> F Q103 
+output F -> id 
+Match id
+output Q103 -> # 
+output Q102 -> # 
+output Q105 -> = E 
+Match =
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+output Q101 -> # 
+output Q100 -> # 
+Match then
+output SL -> S SL 
+output S -> ES 
+output ES -> id := E ; 
+Match id
+Match :=
+output E -> T Q102 
+output T -> F Q103 
+output F -> ic 
+Match ic
+output Q103 -> # 
+output Q102 -> # 
+ERROR. TOKEN MISMATCH. REJECTED!!Expected: end, Found: ;

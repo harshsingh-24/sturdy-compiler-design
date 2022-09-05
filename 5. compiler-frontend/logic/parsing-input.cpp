@@ -13,18 +13,29 @@
 
 using namespace std;
 
-ifstream grammar("grammarLL.txt");
-ifstream parseTable("predictive-parse-table.txt");
-ifstream input("tokenised-input.txt");
-ofstream output("output.txt");
+ifstream grammar("../text-files/grammarLL.txt");
+ifstream parseTable("../text-files/predictive-parse-table.txt");
+ifstream input("../text-files/tokenised-input.txt");
+ifstream nameMap("../text-files/token-to-name-map.txt");
+ofstream output("../text-files/output.txt");
 
 int startSymbol;
 map<pair<int, int>, pair<int, int>> predictiveParsingTable;
 vector<pair<int, vector<vector<int>>>> contextFreeGrammar;
 vector<int> tokenisedInput;
+map<int, string> tokenName;
 
 bool isTerminal(int token) {
     return (token >= 20 && token <= 50);
+}
+
+void tokenToNameMapping(string s) {
+    string name;
+    int token;
+    stringstream ss(s);
+
+    ss >> name >> token;
+    tokenName[token] = name;
 }
 
 void parseProduction(string s) {
@@ -73,6 +84,15 @@ void parseInput(string s) {
     tokenisedInput.push_back(DOLLAR); // End of Input
 }
 
+string getName(int token) {
+    if(tokenName.find(token) != tokenName.end())
+        return tokenName[token];
+    
+    string ans = "Q";
+    ans = ans + to_string(token);
+    return ans;
+}
+
 void predictiveParser() {
     int index = 0;
     stack<int> st;
@@ -90,15 +110,15 @@ void predictiveParser() {
         if(isTerminal(token)) {
             if(token == tokenisedInput[index]) {
                 index++;
-                output << "Match " << token << endl;
+                output << "Match " << getName(token) << endl;
             } else {
-                output << "ERROR. TOKEN MISMATCH. REJECTED!!" << "Expected " << inputToken << " Found " << token << endl;
+                output << "ERROR. TOKEN MISMATCH. REJECTED!!" << "Expected: " << getName(inputToken) << ", Found: " << getName(token) << endl;
                 return;
             }
         } else {
 
             if(predictiveParsingTable.find({token, inputToken}) == predictiveParsingTable.end()) {
-                output << "ERROR. REJECTED. No Entry for in Parse Table for " << token << " " << inputToken << endl;
+                output << "ERROR. REJECTED. No Entry for in Parse Table for " << getName(token) << " " << getName(inputToken) << endl;
                 return;
             }
 
@@ -110,9 +130,9 @@ void predictiveParser() {
                 st.push(*it);
             }
 
-            output << "output " << lhs << " - ";
+            output << "output " << getName(lhs) << " -> ";
             for(auto token: production) {
-                output << token << " ";
+                output << getName(token) << " ";
             }
             output << endl;
         }
@@ -127,10 +147,13 @@ void predictiveParser() {
 }
 
 int main() {
-    ifstream findStart("tokenised-grammar.txt");
+    ifstream findStart("../text-files/tokenised-grammar.txt");
     findStart >> startSymbol;
 
     string s;
+    while(getline(nameMap, s))
+        tokenToNameMapping(s);
+
     while(getline(parseTable, s))
         parsePredictiveParsingTable(s);
     

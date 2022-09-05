@@ -1,6 +1,7 @@
 /***  Lexical Analyser ***/
 %{
-    /** NON_TERMINALS **/
+
+    /** TERMINALS **/
     #define ERROR -1
     #define _AE 1
     #define _BE 2
@@ -22,7 +23,7 @@
     #define _VL 18
     #define _WS 19
 
-    /** TERMINALS **/
+    /** NON_TERMINALS **/
     #define PLUS 20
     #define MINUS 21
     #define MULTIPLY 22
@@ -56,8 +57,6 @@
     #define WHILE 50
 
     /** EXTRA CHARACTERS **/
-    #define ARROW 51
-    #define PIPE 52
     #define WHITESPACE 53
     #define NEWLINE 54
     #define EPSILON 55
@@ -99,24 +98,27 @@ semicolon           (;)
 and                 (and)
 else                (else)
 end                 (end)
-ic                  (ic)
-id                  (id)
 if                  (if)
 int                 (int)
 do                  (do)
-fc                  (fc)
 float               (float)
 not                 (not)
 or                  (or)
 print               (print)
 prog                (prog)
 scan                (scan)
-str                 (str)
 then                (then)
 while               (while)
 
-arrow               (->)
-pipe                (\|)
+digit               [0-9]
+letter              [a-zA-Z]
+digits              ({digit}+)
+l_or_d              ({letter}|{digit})
+ic                  {digits}
+id                  ({letter}{l_or_d}*)
+fc                  {digits}(\.{digits})?(E[+-]?{digits})?
+str                 (\"([^\\\"]|\\.)*\")
+
 whitespace          [ \t]+
 newline             [\n]+
 epsilon             (#)
@@ -159,24 +161,23 @@ epsilon             (#)
 {and}                 {return AND;}
 {else}                {return ELSE;}
 {end}                 {return END;}
-{ic}                  {return IC;}
-{id}                  {return ID;}
 {if}                  {return IF;}
 {int}                 {return INT;}
 {do}                  {return DO;}
-{fc}                  {return FC;}
 {float}               {return FLOAT;}
 {not}                 {return NOT;}
 {or}                  {return OR;}
 {print}               {return PRINT;}
 {prog}                {return PROG;}
 {scan}                {return SCAN;}
-{str}                 {return STR;}
 {then}                {return THEN;}
 {while}               {return WHILE;}
 
-{arrow}               {return ARROW;}
-{pipe}                {return PIPE;}
+{ic}                  {return IC;}
+{id}                  {return ID;}
+{fc}                  {return FC;}
+{str}                 {return STR;}
+
 {whitespace}          {return WHITESPACE;}
 {newline}             {return NEWLINE;}
 {epsilon}             {return EPSILON;}
@@ -188,20 +189,13 @@ int yywrap(void) {return 1;}
 
 int main() {
     int token;
-    FILE *op = fopen("tokenised-grammar.txt", "w");
-    yyin = fopen("grammar-input.txt", "r");
+    FILE *op = fopen("../text-files/tokenised-input.txt", "w");
+    yyin = fopen("../text-files/input.txt", "r");
     while((token=yylex()) != 0) {
-
         if(token == ERROR) {
             fprintf(op, "ERROR while tokenising!!");
             return 1;
-        } else if(token == ARROW) {
-            fprintf(op, "- ");
-        } else if(token == PIPE) {
-            fprintf(op, "| ");
-        } else if(token == NEWLINE) {
-            fprintf(op, "\n");
-        } else if(token == WHITESPACE) {
+        } else if(token == NEWLINE || token == WHITESPACE) {
             continue;
         } else {
             fprintf(op, "%d ", token);

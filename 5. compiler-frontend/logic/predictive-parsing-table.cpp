@@ -13,10 +13,10 @@
 
 using namespace std;
 
-ifstream grammar("grammarLL.txt");
-ifstream first("first-set.txt");
-ifstream follow("follow-set.txt");
-ofstream parseTable("predictive-parse-table.txt");
+ifstream grammar("../text-files/grammarLL.txt");
+ifstream first("../text-files/first-set.txt");
+ifstream follow("../text-files/follow-set.txt");
+ofstream parseTable("../text-files/predictive-parse-table.txt");
 
 map<int, set<int>> firstSet;
 map<int, set<int>> followSet;

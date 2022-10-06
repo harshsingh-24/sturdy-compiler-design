@@ -1,0 +1,38 @@
+global
+    
+    fun testFunction 
+        param1[10], parma2[10][10], param3 : int;
+        n : float;
+        str : string 
+    -> int
+        def 
+            temp[100]: int
+        end
+    end
+
+    // assignment statements:
+    test.a.x := ((a+b).(200/12.2))mod(100*10);
+    test.b := (r*s)+(x:y+z, 13*2, 12.2E10*5);
+
+    // read statements:
+    read %f 100.2E-9;
+    read %s (x: a, b);
+
+    // while statement:
+    while (a<=b and not a>z):
+        read %d test;
+        // loop statement:
+        from i:= (r*s+10) to (r*r) step 10 :
+            test:=test+1;
+            // if statement:
+            if ((i mod 2)=0): 
+                // print statement:
+                print "#EVEN";
+            else
+                print "#ODD"
+            end   
+        end
+    end;
+
+    return data1+data2
+end

@@ -1,0 +1,27 @@
+main ()
+{
+  int D.1888;
+
+  {
+    int harsh;
+
+    harsh = 1;
+    {
+      int i;
+
+      i = 0;
+      goto <D.1885>;
+      <D.1884>:
+      harsh = harsh + 1;
+      i = i + 1;
+      <D.1885>:
+      if (i <= 9) goto <D.1884>; else goto <D.1886>;
+      <D.1886>:
+    }
+    printf ("%d", harsh);
+  }
+  D.1888 = 0;
+  return D.1888;
+}
+
+

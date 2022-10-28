@@ -1,9 +1,8 @@
 %{
     // DEFINITIVE SECTION
-    #include<stdio.h>
-    #include<string> 
-    #include "nodeheader.h"
-    #include "parser.tab.h" 
+    #include<stdio.h> 
+    #include "parse.tab.h" 
+    extern int yylval;
 %}
 
 %option yylineno
@@ -14,17 +13,16 @@ mult        (\*)
 plus        (\+)
 digit       [0-9]
 digits      ({digit}+)
-floatconst  {digits}(\.{digits})?(E[+-]?{digits})?
+intconst   {digits}
 
 %%
 {div}               {return DIV;}
 {minus}             {return MINUS;}
 {mult}              {return MULT;}
 {plus}              {return PLUS;}
-{floatconst}          { 
-                        float temp = atof(yytext);
-                        yylval.value = temp;
-                        return FLOATCONST;
+{intconst}          { 
+                        yylval = atoi(yytext);
+                        return INTCONST;
                     }
 [\t\n" "]           {};  
 %%

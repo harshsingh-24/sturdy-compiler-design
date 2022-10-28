@@ -85,7 +85,7 @@ E: E PLUS T
         string sb = to_string((long long)$<node>3);
 
         string s = "+" + sa + sb;
-        Node* temp = new Node(1, $<node>1, $<node>3, $<node>1->val + $<node>3->val, s);
+        Node* temp = new Node(1, $<node>1, $<node>3, $<node>1->val + $<node>3->val);
         $<node>$ = temp;
         m[s] = temp;
     } else {
@@ -100,7 +100,7 @@ E: E PLUS T
         string sb = to_string((long long)$<node>3);
 
         string s = "-" + sa + sb;
-        Node* temp = new Node(2, $<node>1, $<node>3, $<node>1->val - $<node>3->val, s);
+        Node* temp = new Node(2, $<node>1, $<node>3, $<node>1->val - $<node>3->val);
         $<node>$ = temp;
         m[s] = temp;
     } else {
@@ -121,7 +121,7 @@ T: T MULT F
         string sb = to_string((long long)$<node>3);
 
         string s = "*" + sa + sb;
-        Node* temp = new Node(3, $<node>1, $<node>3, $<node>1->val * $<node>3->val, s);
+        Node* temp = new Node(3, $<node>1, $<node>3, $<node>1->val * $<node>3->val);
         $<node>$ = temp;
         m[s] = temp;
     } else {
@@ -136,7 +136,7 @@ T: T MULT F
         string sb = to_string((long long)$<node>3);
 
         string s = "/" + sa + sb;
-        Node* temp = new Node(4, $<node>1, $<node>3, $<node>1->val / $<node>3->val, s);
+        Node* temp = new Node(4, $<node>1, $<node>3, $<node>1->val / $<node>3->val);
         $<node>$ = temp;
         m[s] = temp;
     } else {
@@ -156,7 +156,7 @@ F: FLOATCONST
         $<node>$ = m[constant];
     } 
     else {
-        Node* temp = new Node(constant, $<value>1);
+        Node* temp = new Node($<value>1);
         m[constant] = temp;
         $<node>$ = temp;
     }

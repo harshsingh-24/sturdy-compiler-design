@@ -1,27 +1,27 @@
 main ()
-{
+gimple_bind <
   int D.1888;
 
-  {
+  gimple_bind <
     int harsh;
 
-    harsh = 1;
-    {
+    gimple_assign <integer_cst, harsh, 1, NULL, NULL>
+    gimple_bind <
       int i;
 
-      i = 0;
-      goto <D.1885>;
-      <D.1884>:
-      harsh = harsh + 1;
-      i = i + 1;
-      <D.1885>:
-      if (i <= 9) goto <D.1884>; else goto <D.1886>;
-      <D.1886>:
-    }
-    printf ("%d", harsh);
-  }
-  D.1888 = 0;
-  return D.1888;
-}
+      gimple_assign <integer_cst, i, 0, NULL, NULL>
+      gimple_goto <<D.1885>>
+      gimple_label <<D.1884>>
+      gimple_assign <plus_expr, harsh, harsh, 1, NULL>
+      gimple_assign <plus_expr, i, i, 1, NULL>
+      gimple_label <<D.1885>>
+      gimple_cond <le_expr, i, 9, <D.1884>, <D.1886>>
+      gimple_label <<D.1886>>
+    >
+    gimple_call <printf, NULL, "%d", harsh>
+  >
+  gimple_assign <integer_cst, D.1888, 0, NULL, NULL>
+  gimple_return <D.1888 NULL>
+>
 
 

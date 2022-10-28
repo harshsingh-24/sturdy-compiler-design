@@ -7,3 +7,5 @@ runner_assignment.bat
 *.pdf
 lex.yy.c
 extras
+parse.tab.h
+parse.tab.c

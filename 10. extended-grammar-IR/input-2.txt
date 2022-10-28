@@ -1,0 +1,26 @@
+global 
+
+	x := 1;
+	y := x + 5;
+	z := y + x;
+	
+	print "x";
+    print %d x;
+	read %d y;
+	
+	if p <> q and a = 5:
+		print "c";
+		if b > 0: print "c" else b := b + 1 end;
+		print "q"
+	else
+		print "a";
+		print "b"
+	end;
+
+	while x > y:
+		p := x + 1;
+		while a > b:
+			q := y + 1
+		end
+	end	
+end

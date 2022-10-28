@@ -1,0 +1,27 @@
+global 
+    // assignment statements:
+    test := ((a+b)*(200/12*2))mod(100*10);
+    test := (r*s)+(x+y-z);
+
+    // read statements:
+    read %d y;
+
+    // while statement:
+    while (a<=b and not a>z):
+        read %d test;
+        test:=test+1;
+        // if statement:
+        if ((i mod 2)=0): 
+            // print statement:
+            print "#EVEN"
+        else
+            print "#ODD"
+        end; 
+        if test=100:
+           print "EXIT"
+        end;
+        // skip statement:
+        print "skip"
+    end
+end
+

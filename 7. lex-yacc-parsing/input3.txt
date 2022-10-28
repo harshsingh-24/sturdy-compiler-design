@@ -1,4 +1,4 @@
-global
+global 
 
 	def
 		// some type defs
@@ -8,7 +8,7 @@ global
 			otherId := product
 				extra, nul : null
 			end
-		end 
+		end;
 
 		var1, var2[5], var3 : float;
 		var4[1], v5[3][4] : int
@@ -31,7 +31,7 @@ global
 	while awe > qwe:
 		print "# 123QWE";
 		awe := qwe + 1;
-		qwe := qwe + 2
+		qwe = qwe + 2
 	end;
 
 	if awe <> qwe or awe <> qwe or qwe + abc > 50 and not((abc  = 10.234) or  10.234  <= qwe and not qwe > 50) or qwe <> abc:
@@ -39,7 +39,7 @@ global
 	else
 		print "ABC";
 		print "ABC"
-	end
+	end;
 
 	from iteratorId := 5+abc to qwe-1.23 step abc+qwe :
 		print "ABC";

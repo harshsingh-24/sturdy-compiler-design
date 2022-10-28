@@ -8,23 +8,21 @@ public:
     Node* right;
     float val;
     string mermaid;
-    string extra;
+    // string extra;
 
-    Node(string alpha, float v) { // This is for integer node/ leaf nodes
+    Node(float v) { // This is for integer node/ leaf nodes
         type = -1;
         val  = v;
         left = NULL;
         right = NULL;
-        extra = alpha;
         mermaid = to_string(v);
     }
 
-    Node(int t, Node* l, Node* r, float v, string alpha) { // This is for non-integer node/non-leaf nodes
+    Node(int t, Node* l, Node* r, float v) { // This is for non-integer node/non-leaf nodes
         type = t;
         val = v;
         left = l;
         right = r;
-        extra = alpha;
 
         if(t == 1) {
             mermaid = "+";
